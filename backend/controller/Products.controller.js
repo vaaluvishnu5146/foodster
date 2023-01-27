@@ -1,12 +1,13 @@
 const Express = require("express");
 const ProductsModel = require("../models/Products.model");
 const router = Express.Router();
+const AuthMiddleWare = require("../middleware/AuthMiddleware");
 
 const updateProductOptions = {
   runValidators: true,
 };
 
-router.get("/", (req, res, next) => {
+router.get("/", AuthMiddleWare, (req, res, next) => {
   ProductsModel.find()
     .then((response) => {
       if (response.length > 0) {

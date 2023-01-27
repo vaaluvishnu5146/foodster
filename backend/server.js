@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const dotEnv = require("dotenv");
+dotEnv.config();
+console.log(process.env);
 // CREATING INSTANCE OF EXPRESS MODULE
 const app = express();
 
